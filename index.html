@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accordion Component</title>
+	<meta charset="utf-8" />
+    <style>
+        body {
+            font-family: verdana;
+        }
+        .divs {
+            width: 50%;
+            height: 40px;
+            margin: 10px;     
+    	    border: none;
+          	border-radius: 4px;
+          	-webkit-border-radius: 4;
+          	-moz-border-radius: 4;
+          	box-shadow: 1px 1px 2px #565A66;
+          	-webkit-box-shadow: 1px 1px 2px #565A66;
+          	-moz-box-shadow: 1px 1px 2px #565A66;
+          	font-family: Arial;
+          	color: #ffffff;
+          	font-size: 18px;
+          	background: #38AECC;
+          	padding: 10px 20px 10px 20px;
+          	text-decoration: none;
+        }
+        .divs:hover {
+            background: #339FBA;            
+        }
+        .textoP {
+            font-size:medium;
+            text-align:justify;
+        }
+    </style>
+</head>
+<body>
+    <h1>&nbsp;Accordion Component </h1>
+    <p>&nbsp;&nbsp;...HTML, CSS and Vanilla Javascript.</p>
+    
+    <div class="divs" id="test1"> <!--Panel 1-->
+        Title 1
+        <p class="textoP" id="textoP1">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+
+    <div class="divs" id="test2"> <!--Panel 2-->
+        Title 2
+        <p class="textoP" id="textoP2">
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>
+    </div>
+
+    <div class="divs" id="test3"> <!--Panel 3-->
+        Title 3
+        <p class="textoP" id="textoP3">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>    
+    </div>
+
+    <script>
+        var div1 = document.querySelector("#test1");                  
+        var div2 = document.querySelector("#test2");
+        var div3 = document.querySelector("#test3");
+        
+        var div1Status = false;
+        var div2Status = false;
+        var div3Status = false;
+        var textoP1 = document.querySelector('#textoP1');
+        var textoP2 = document.querySelector('#textoP2');
+        var textoP3 = document.querySelector('#textoP3');
+        textoP1.hidden = true;
+        textoP2.hidden = true;
+        textoP3.hidden = true;              
+        div1.addEventListener('click', function () {            
+            if (div1Status) {
+                div1.style.height = "40px";                
+                textoP1.hidden = true;
+                div1Status = false;
+            } else {                
+                div1.style.height = "auto"; //Automatic adjust div size to content                
+                div2.style.height = "40px";
+                div3.style.height = "40px";
+                textoP1.hidden = false;
+                textoP2.hidden = true;
+                textoP3.hidden = true;
+                div1Status = true;
+                div2Status = false;
+                div3Status = false;
+            }
+        });
+        div2.addEventListener('click', function () {            
+            if (div2Status) {
+                div2.style.height = "40px";
+                textoP2.hidden = true;
+                div2Status = false;
+            } else {
+                div2.style.height = "auto"; //Automatic adjust div size to content
+                div1.style.height = "40px";
+                div3.style.height = "40px";
+                textoP2.hidden = false;
+                textoP1.hidden = true;
+                textoP3.hidden = true;
+                div2Status = true;
+                div1Status = false;
+                div3Status = false;
+            }
+        });
+        div3.addEventListener('click', function () { 
+            if (div3Status) {
+                div3.style.height = "40px";
+                textoP3.hidden = true;
+                div3Status = false;
+            } else {
+                div3.style.height = "auto"; //Automatic adjust div size to content
+                div1.style.height = "40px";
+                div2.style.height = "40px";
+                textoP3.hidden = false;                         
+                textoP1.hidden = true;
+                textoP2.hidden = true;
+                div3Status = true;
+                div1Status = false;
+                div2Status = false;                
+            }
+        });
+    </script>
+</body>
+</html>
